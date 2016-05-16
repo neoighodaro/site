@@ -1,0 +1,39 @@
+@import "settings";
+@import "foundation";
+
+.fill {
+	width: 100%;
+	height: 100%;
+}
+
+// -----------------------
+// Home
+// -----------------------
+
+#page-container .home {
+	background-size: cover;
+	background-position: center;
+	background-image: url(../img/bg.png);
+}
+#page-container .home panda-footer {
+	bottom: 0;
+	width: 100%;
+	z-index: 99;
+	position: absolute;
+}
+
+// -----------------------
+// Footer
+// -----------------------
+
+panda-footer {
+	width: 100%;
+	padding: 8px 0;
+	.share-btn, .ck {
+		width: 100%;
+		height:26px;
+	}
+	.ck {
+		text-align: right;
+	}
+}

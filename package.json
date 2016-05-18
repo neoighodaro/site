@@ -1,6 +1,6 @@
 {
-  "name": "foundation-apps-template",
-  "version": "1.2.0",
+  "name": "neoighodaro-website",
+  "version": "1.0.0",
   "scripts": {
     "start": "gulp",
     "build": "gulp build --production"

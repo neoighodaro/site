@@ -1,19 +1,17 @@
 {
-  "name": "foundation-apps-template",
-  "version": "1.2.0",
+  "name": "neoighodaro-website",
+  "version": "1.0.0",
   "authors": [
-    "ZURB"
+    "Neo Ighodaro <neo@creativitykills.co>"
   ],
-  "description": "Template project for Foundation for Apps by ZURB.",
+  "description": "Official website: neoighodaro.com",
   "main": "gulpfile.js",
   "keywords": [
-    "framework",
-    "angular",
-    "web",
-    "apps"
+    "neoighodaro",
+    "creativitykills"
   ],
   "license": "MIT",
-  "homepage": "http://foundation.zurb.com",
+  "homepage": "http://neoighodaro.com",
   "private": true,
   "ignore": [
     "**/.*",
@@ -22,10 +20,8 @@
     "test",
     "tests"
   ],
-  "dependencies": {
-    "foundation-apps": "~1.2.0"
-  },
   "devDependencies": {
+    "foundation-apps": "~1.2.0",
     "angular-loading-bar": "^0.9.0"
   }
 }

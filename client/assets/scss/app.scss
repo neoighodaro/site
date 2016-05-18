@@ -1,10 +1,131 @@
 @import "settings";
 @import "foundation";
+@import "loading-bar";
 
-.fill {
+.\+fill {
 	width: 100%;
 	height: 100%;
 }
+
+.\+middle {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.\+no-overflow {
+	overflow: hidden;
+}
+
+::selection {
+  background: $primary-color;
+  color: #fff;
+}
+
+#loading-logo {
+	width: 283px;
+	height: 60px;
+	display: block;
+	margin: 0 auto 25px;
+	background-repeat: no-repeat;
+	background-image: url(../img/neo-logo.png);
+	img {
+		display: none;
+	}
+	@include breakpoint(medium) {
+		width: 283px;
+		height: 60px;
+		background-size: 283px 60px;
+	}
+}
+
+.below-loading-logo {
+	text-align: center;
+	span {
+		color: #999;
+		font-size: 15px;
+	}
+}
+
+// -----------------------
+// Navigation
+// -----------------------
+
+panda-navigation {
+	top: 0;
+	width: 100%;
+	padding: 10px 0;
+	position: fixed;
+	.container {
+		@include grid-block(12);
+	}
+	.site-logo {
+		@include grid-block(6);
+		.content {
+			@include grid-content;
+		}
+		a {
+			width: 40px;
+			height: 40px;
+			display: block;
+			background: url('../img/neo-logo.png');
+			background-size: 188px 40px;
+			@include breakpoint(large) {
+				width: 188px;
+			}
+		}
+		img {
+			max-height: 40px;
+		}
+	}
+	.mobile-menu {
+		@include grid-block(6);
+		.content {
+			@include grid-content;
+			a {
+				float: right;
+				line-height: 40px;
+			}
+		}
+		@include breakpoint(medium) {
+			display: none;
+		}
+	}
+	.desktop-menu {
+		display: none;
+		padding: 10px 0;
+		@include breakpoint(medium) {
+			@include grid-block(6);
+			.content {
+				@include grid-content;
+			}
+			ul {
+				margin: 0;
+				padding: 0;
+				float: right;
+				list-style: none;
+			}
+			ul > li {
+				float: left;
+				margin-right: 30px;
+				&:last-child {
+					margin-right: 0;
+				}
+			}
+			ul > li > a {
+				color: #777;
+				transition: all .3s ease;
+				&:hover {
+					color: $primary-color;
+				}
+			}
+		}
+	}
+	@include breakpoint(medium) {
+		position: absolute;
+	}
+}
+
 
 // -----------------------
 // Home
@@ -12,8 +133,11 @@
 
 #page-container .home {
 	background-size: cover;
-	background-position: center;
+	background-position: top right;
 	background-image: url(../img/bg.png);
+	@include breakpoint( large ) {
+		background-position: center;
+	}
 }
 #page-container .home panda-footer {
 	bottom: 0;
@@ -29,6 +153,13 @@
 panda-footer {
 	width: 100%;
 	padding: 8px 0;
+	bottom: 0;
+	width: 100%;
+	z-index: 99;
+	position: fixed;
+	@include breakpoint(medium) {
+		position: absolute;
+	}
 	.share-btn, .ck {
 		width: 100%;
 		height:26px;

@@ -22,22 +22,25 @@ The choppa go Oscar for Grammy
 B*tch n*gga pull up ya panty
 Hope you "people" understand me
 -->
-<html lang="en" ng-app="🐼">
+<html lang="en" ng-app="🐼" ng-controller="PandaController">
   <head>
     <meta charset="utf-8" />
-    <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="/">
     <title>Neo Ighodaro &mdash; Lagos Based Full-Stack Web Developer</title>
-    <link rel="shortcut icon" href="/favicon.png">
-    <link href="./assets/css/app.css" rel="stylesheet" type="text/css">
-    <script src="./assets/js/foundation.js"></script>
-    <script src="./assets/js/templates.js"></script>
-    <script src="./assets/js/routes.js"></script>
-    <script src="./assets/js/app.js"></script>
 
     <!-- Prefetch -->
-    <link rel="prefetch" href="/assets/img/neo-logo.svg">
-    <!-- / Prefetch -->
+    <link rel="prefetch" href="/assets/img/neo-logo.png" />
+    <!--link rel="dns-prefetch" href="//ajax.googleapis.com" /-->
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com" />
+    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="//www.googletagmanager.com" />
+
+    <!-- Assets -->
+    <link href="/favicon.ico" rel="shortcut icon" />
+    <link href="./assets/css/app.css" rel="stylesheet" type="text/css" />
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:400,500" rel="stylesheet" type="text/css" />
 
     <!-- SEO -->
     <meta name="description" content="Neo Ighodaro is a twenty-something year old full-stack web developer and graphic designer based in Lagos, Nigeria. Hobbies include programming, singing and drawing."/>
@@ -55,15 +58,19 @@ Hope you "people" understand me
     <meta name="twitter:title" content="Neo Ighodaro &mdash; Lagos Based Full-Stack Web Developer" />
     <meta name="twitter:site" content="@neoighodaro" />
     <meta name="twitter:image" content="http://neoighodaro.com/assets/img/neo.jpg" />
-    <script type='application/ld+json'>{"@context":"http:\/\/schema.org","@type":"WebSite","url":"http:\/\/neoighodaro.com\/","name":"Neo Ighodaro"}}</script>
-    <!-- / SEO -->
+    <script type='application/ld+json'>{"@context":"http:\/\/schema.org","@type":"WebSite","url":"http:\/\/neoighodaro.com\/","@logo":"", "name":"Neo Ighodaro","sameAs":["https://www.facebook.com/catchphraze/","https://twitter.com/neoighodaro/","https://www.instagram.com/neoighodaro/"]}</script>
 
     <!-- Google Tag Manager -->
-    <!-- / Google Tag Manager -->
   </head>
   <body>
     <div class="grid-frame vertical">
-      <div ui-view id="page-container" class="fill"></div>
+      <panda-navigation></panda-navigation>
+      <div ui-view id="page-container" class="+fill"></div>
+      <panda-footer></panda-footer>
     </div>
+
+    <!-- Scripts -->
+    <script src="./assets/js/vendors.js"></script>
+    <script src="./assets/js/app.js"></script>
   </body>
 </html>

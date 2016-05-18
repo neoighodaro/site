@@ -1,9 +1,9 @@
 (function () {
   'use strict';
-  let vm, HomeController;
+  var vm, HomeController;
   HomeController = function () {
-    vm = this;
+  	vm = this;
   };
   HomeController.$inject = [];
-  angular.module('🐼.Home').controller('HomeController', HomeController);
+  angular.module('🐼.Pages').controller('HomeController', HomeController);
 }());

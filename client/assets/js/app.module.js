@@ -10,29 +10,34 @@
     'foundation.dynamicRouting',
     'foundation.dynamicRouting.animations',
 
+    //3rd Party
+    'angular-loading-bar',
+
     // Site modules
-    '🐼.Home',
     '🐼.Shared',
+    '🐼.Pages',
   ])
     .config(config)
     .run(run)
   ;
 
-  config.$inject = ['$urlRouterProvider', '$locationProvider'];
+  config.$inject = ['$urlRouterProvider', '$locationProvider',  'cfpLoadingBarProvider'];
 
-  function config($urlProvider, $locationProvider) {
+  function config($urlProvider, $locationProvider, cfpLoadingBarProvider) {
     $urlProvider.otherwise('/');
 
-    $locationProvider.html5Mode({
-      enabled:false,
-      requireBase: false
-    });
+    cfpLoadingBarProvider.includeSpinner = false;
 
-    $locationProvider.hashPrefix('!');
+    $locationProvider.html5Mode({
+      enabled: true,
+      requireBase: true
+    });
   }
 
   function run() {
     FastClick.attach(document.body);
   }
+
+  run.$inject = [];
 
 })();

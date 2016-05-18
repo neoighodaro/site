@@ -38,6 +38,7 @@ var paths = {
     'bower_components/angular/angular.js',
     'bower_components/angular-animate/angular-animate.js',
     'bower_components/angular-ui-router/release/angular-ui-router.js',
+    'bower_components/angular-loading-bar/src/loading-bar.js',
     'bower_components/foundation-apps/js/vendor/**/*.js',
     'bower_components/foundation-apps/js/angular/**/*.js',
     '!bower_components/foundation-apps/js/angular/app.js'
@@ -74,7 +75,7 @@ gulp.task('copy', function() {
 gulp.task('copy:templates', function() {
   return gulp.src('./client/templates/**/*.html')
     .pipe(router({
-      path: 'build/assets/js/routes.js',
+      path: 'client/assets/js/_tmp/routes.js',
       root: 'client'
     }))
     .pipe(gulp.dest('./build/templates'))
@@ -91,7 +92,8 @@ gulp.task('copy:foundation', function(cb) {
     }))
     .pipe($.uglify())
     .pipe($.concat('templates.js'))
-    .pipe(gulp.dest('./build/assets/js'))
+    //.pipe(gulp.dest('./build/assets/js'))
+    .pipe(gulp.dest('./client/assets/js/_tmp/'))
   ;
 
   // Iconic SVG icons
@@ -121,7 +123,7 @@ gulp.task('sass', function () {
 });
 
 // Compiles and copies the Foundation for Apps JavaScript, as well as your app's custom JS
-gulp.task('uglify', ['uglify:foundation', 'uglify:app'])
+gulp.task('uglify', ['uglify:foundation', 'uglify:app', 'uglify:vendors'])
 
 gulp.task('uglify:foundation', function(cb) {
   var uglify = $.if(isProduction, $.uglify()
@@ -132,6 +134,20 @@ gulp.task('uglify:foundation', function(cb) {
   return gulp.src(paths.foundationJS)
     .pipe(uglify)
     .pipe($.concat('foundation.js'))
+    // .pipe(gulp.dest('./build/assets/js/'))
+    .pipe(gulp.dest('./client/assets/js/_tmp/'))
+  ;
+});
+
+gulp.task('uglify:vendors', function() {
+  var uglify = $.if(isProduction, $.uglify()
+    .on('error', function (e) {
+      console.log(e);
+    }));
+
+  return gulp.src(['client/assets/js/_tmp/*.js'])
+    .pipe(uglify)
+    .pipe($.concat('vendors.js'))
     .pipe(gulp.dest('./build/assets/js/'))
   ;
 });

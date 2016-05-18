@@ -92,13 +92,13 @@
 // We use these to control various global styles
 // $body-background: #fff;
 // $body-font-color: #222;
-// $body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+$body-font-family: "Ubuntu", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 // $body-font-weight: $font-weight-normal;
 // $body-font-style: normal;
 // $body-antialiased: true;
 
 // Application Colors
-// $primary-color: #00558b;
+$primary-color: #D01F48;
 // $secondary-color: #f1f1f1;
 // $alert-color: #F04124;
 // $info-color: #A0D3E8;
@@ -233,7 +233,7 @@
 // 5. Grid
 // - - - - - - - - - - - - - - -
 
-$container-width: rem-calc(1400);
+$container-width: rem-calc(1440);
 // $block-padding: $global-padding;
 // $total-columns: 12;
 // $block-grid-max-size: 6;

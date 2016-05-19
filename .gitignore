@@ -4,4 +4,3 @@ npm-debug.log
 bower_components
 build
 .sass-cache
-client/assets/js/.tmp

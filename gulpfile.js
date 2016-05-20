@@ -51,6 +51,7 @@ var paths = {
     'client/assets/js/**/*.service.js',
     'client/assets/js/**/*.factorie.js',
     'client/assets/js/**/*.controller.js',
+    'client/assets/js/_tmp/templates.app.js'
   ]
 }
 
@@ -60,6 +61,9 @@ var paths = {
 // Cleans the build directory
 gulp.task('clean', function(cb) {
   rimraf('./build', cb);
+  // rimraf('./build', function (){
+  //   rimraf('./client/assets/js/_tmp', cb);
+  // });
 });
 
 // Copies everything in the client folder except templates, Sass, and JS
@@ -104,6 +108,23 @@ gulp.task('copy:foundation', function(cb) {
   cb();
 });
 
+
+gulp.task('copy:app', function(cb) {
+  gulp.src('client/templates/partials/**/*.html')
+    .pipe($.ngHtml2js({
+      prefix: 'templates/partials/',
+      moduleName: '🐼',
+      declareModule: false
+    }))
+    .pipe($.uglify())
+    .pipe($.concat('templates.app.js'))
+    //.pipe(gulp.dest('./build/assets/js'))
+    .pipe(gulp.dest('./client/assets/js/_tmp/'))
+  ;
+
+  cb();
+});
+
 // Compiles Sass
 gulp.task('sass', function () {
   var minifyCss = $.if(isProduction, $.minifyCss());
@@ -120,6 +141,20 @@ gulp.task('sass', function () {
     .pipe(minifyCss)
     .pipe(gulp.dest('./build/assets/css/'))
   ;
+});
+
+// Minify Html
+gulp.task('minify:Html', function() {
+  var htmlMin = $.if(!isProduction, $.htmlmin({
+    collapseWhitespace: true,
+    // minifyCSS: true,
+    // minifyJS: true,
+    // removeComments: true
+  }));
+
+  return gulp.src('build/**/*.html')
+    .pipe(htmlMin)
+    .pipe(gulp.dest('./build/'))
 });
 
 // Compiles and copies the Foundation for Apps JavaScript, as well as your app's custom JS
@@ -180,7 +215,7 @@ gulp.task('server', ['build'], function() {
 
 // Builds your entire app once, without starting a server
 gulp.task('build', function(cb) {
-  sequence('clean', ['copy', 'copy:foundation', 'sass', 'uglify'], 'copy:templates', cb);
+  sequence('clean', ['copy', 'copy:foundation', 'sass', 'uglify'], 'copy:templates', 'minify:Html', cb);
 });
 
 // Default task: builds your app, starts a server, and recompiles assets when they change

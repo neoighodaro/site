@@ -14,7 +14,6 @@
       'foundation',
       'foundation.dynamicRouting',
       'foundation.dynamicRouting.animations',
-      'angular-loading-bar',
       '🐼.Shared',
       '🐼.Pages',
     ];
@@ -28,16 +27,14 @@
    * @param  {Object} cfpLoadingBarProvider
    * @return {void}
    */
-  appConfiguration = function ($urlProvider, $locationProvider, cfpLoadingBarProvider) {
+  appConfiguration = function ($urlProvider, $locationProvider) {
     $urlProvider.otherwise('/');
-
-    cfpLoadingBarProvider.includeSpinner = false;
 
     $locationProvider.html5Mode({ enabled: true, requireBase: true });
   };
 
   // Inject dependencies into the appConfiguration function...
-  appConfiguration.$inject = ['$urlRouterProvider', '$locationProvider',  'cfpLoadingBarProvider'];
+  appConfiguration.$inject = ['$urlRouterProvider', '$locationProvider'];
 
 
   /**

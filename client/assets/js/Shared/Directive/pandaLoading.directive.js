@@ -11,6 +11,10 @@
     var linkFn;
 
     linkFn = function ($scope, elem) {
+      Pace.on('start', function () {
+        elem.removeClass('fade-out hide-element').addClass('fade-in');
+      });
+
       Pace.on('done', function () {
         elem.removeClass('fade-in').addClass('fade-out');
         $window.setTimeout(function() {

@@ -48,12 +48,12 @@
 }
 
 .fade-in {
-    transition: opacity 2s;
+    transition: opacity 1s;
     opacity: 1;
 }
 
 .fade-out {
-    transition: opacity 2s;
+    transition: opacity .5s;
     opacity: 0;
 }
 

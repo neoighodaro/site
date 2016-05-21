@@ -21,7 +21,6 @@
     "tests"
   ],
   "devDependencies": {
-    "foundation-apps": "~1.2.0",
-    "angular-loading-bar": "^0.9.0"
+    "foundation-apps": "~1.2.0"
   }
 }

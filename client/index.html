@@ -29,7 +29,7 @@ Hope you "people" understand me...
 Oh, btw, heres the link to the GitHub repo:
 https://github.com/neoighodaro/neoighodaro.com/
 -->
-<html lang="en" ng-app="🐼" ng-controller="PandaController">
+<html lang="en" ng-app="🐼" ng-controller="PandaController" manifest="panda.manifest">
   <head>
     <meta charset="utf-8" />
     <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
@@ -38,15 +38,23 @@ https://github.com/neoighodaro/neoighodaro.com/
     <title>Neo Ighodaro &mdash; Lagos Based Full-Stack Web Developer</title>
 
     <!-- Prefetch -->
-    <link rel="prefetch" href="/assets/img/neo-logo.png" />
+    <link rel="prefetch" href="assets/img/bg.png" />
+    <link rel="prefetch" href="assets/img/bg-about.png" />
+    <link rel="prefetch" href="assets/img/neo-logo.png" />
+    <link rel="prefetch" href="assets/img/neo-photo-1.png" />
+    <link rel="prefetch" href="assets/img/neo-photo-2.png" />
+    <link rel="prefetch" href="assets/img/neo-photo-3.png" />
+    <link rel="prefetch" href="assets/img/neo-photo-4.png" />
     <link rel="dns-prefetch" href="//fast.eager.io" />
-    <!--link rel="dns-prefetch" href="//cdn.jsdelivr.net" /-->
+    <link rel="dns-prefetch" href="//use.fontawesome.com" />
     <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="//connect.facebook.net">
+    <link rel="dns-prefetch" href="//platform.twitter.com">
 
     <!-- Assets -->
     <link href="/favicon.ico" rel="shortcut icon" />
     <link href="./assets/css/app.css" rel="stylesheet" type="text/css" />
-    <link href="//fonts.googleapis.com/css?family=Ubuntu:400,500" rel="stylesheet" type="text/css" />
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:400,500,700" rel="stylesheet" type="text/css" />
 
     <!-- SEO -->
     <meta name="description" content="Neo Ighodaro is a twenty-something year old full-stack web developer and graphic designer based in Lagos, Nigeria. Hobbies include programming, singing and drawing."/>
@@ -71,6 +79,9 @@ https://github.com/neoighodaro/neoighodaro.com/
   <body>
     <panda-loading></panda-loading>
 
+    <!-- Facebook SDK -->
+    <div id="fb-root"></div>
+
     <div class="grid-frame vertical">
       <panda-navigation></panda-navigation>
       <div ui-view id="page-container" class="+fill"></div>
@@ -78,8 +89,13 @@ https://github.com/neoighodaro/neoighodaro.com/
     </div>
 
     <!-- Scripts -->
+    <script async src="//use.fontawesome.com/2f4ea55c3f.js"></script>
     <script src="//fast.eager.io/BEHbMtrMbI.js"></script>
     <script src="./assets/js/vendors.js"></script>
     <script src="./assets/js/app.js"></script>
+
+    <script type="text/javascript">
+    (function(){function djs() {var e = document.createElement("script");e.src = "/assets/js/defer.js";document.body.appendChild(e);}if (window.addEventListener){window.addEventListener("load",djs,false);}else if(window.attachEvent){window.attachEvent("onload",djs);}else{window.onload=djs;}}());
+    </script>
   </body>
 </html>

@@ -9,6 +9,13 @@
    */
   AboutController = function () {
     vm = this;
+
+    vm.photos = [
+      '/assets/img/neo-photo-1.png',
+      '/assets/img/neo-photo-3.png',
+      '/assets/img/neo-photo-4.png',
+      '/assets/img/neo-photo-2.png'
+    ];
   };
 
   // Inject dependencies into the controller

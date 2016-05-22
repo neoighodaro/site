@@ -6,6 +6,8 @@ This is the source code of [my official website](http://neoighodaro.com).
 
 The site itself was built using [Foundation for Apps](http://foundation.zurb.com/apps). You can look at their documentation to know how to use Foundation if you have not used it before.
 
+Some key changes though, for speed and file size reasons, I had to painstakenly disable some of the components added by Foundation; most of them were useless to the application. For some reason, Foundation makes it extremely hard to do this.
+
 
 ## Requirements
 

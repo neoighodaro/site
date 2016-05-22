@@ -20,10 +20,11 @@
      * @return {void}
      */
     linkFn = function ($scope) {
-      $scope.$location = $location;
-      $scope.$watch('$location.path()', function(locationPath) {
-        $scope.showLogo = (locationPath === '/' ? false : true);
-      });
+      $scope.showLogo = true;
+      // $scope.$location = $location;
+      // $scope.$watch('$location.path()', function(locationPath) {
+      //   $scope.showLogo = (locationPath === '/' ? false : true);
+      // });
     };
 
     return {

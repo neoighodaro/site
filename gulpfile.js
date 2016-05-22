@@ -38,9 +38,16 @@ var paths = {
     'bower_components/angular/angular.js',
     'bower_components/angular-animate/angular-animate.js',
     'bower_components/angular-ui-router/release/angular-ui-router.js',
-    'bower_components/foundation-apps/js/vendor/**/*.js',
-    'bower_components/foundation-apps/js/angular/**/*.js',
-    '!bower_components/foundation-apps/js/angular/app.js'
+    'bower_components/angular-touch/angular-touch.js',
+    'bower_components/angular-carousel/dist/angular-carousel.js',
+    // 'bower_components/foundation-apps/js/vendor/**/*.js',
+    // 'bower_components/foundation-apps/js/angular/**/*.js',
+    // 'bower_components/foundation-apps/js/angular/components/**/*.js',
+    'bower_components/foundation-apps/js/angular/services/**/*.js',
+    'client/assets/js/app.foundation.js',
+    // 'bower_components/foundation-apps/js/angular/*.js',
+    // '!bower_components/foundation-apps/js/angular/foundation.js',
+    // '!bower_components/foundation-apps/js/angular/app.js'
   ],
   // These files are for your app's JavaScript
   appJS: [
@@ -49,8 +56,7 @@ var paths = {
     'client/assets/js/**/*.directive.js',
     'client/assets/js/**/*.service.js',
     'client/assets/js/**/*.factorie.js',
-    'client/assets/js/**/*.controller.js',
-    'client/assets/js/_tmp/templates.app.js'
+    'client/assets/js/**/*.controller.js'
   ]
 }
 
@@ -67,9 +73,13 @@ gulp.task('clean', function(cb) {
 
 // Copies everything in the client folder except templates, Sass, and JS
 gulp.task('copy', function() {
+  gulp.src('client/assets/js/defer.js')
+    .pipe(gulp.dest('./build/assets/js'));
+
   return gulp.src(paths.assets, {
     base: './client/'
   })
+    .pipe($.imagemin())
     .pipe(gulp.dest('./build'))
   ;
 });
@@ -87,22 +97,22 @@ gulp.task('copy:templates', function() {
 
 // Compiles the Foundation for Apps directive partials into a single JavaScript file
 gulp.task('copy:foundation', function(cb) {
-  gulp.src('bower_components/foundation-apps/js/angular/components/**/*.html')
-    .pipe($.ngHtml2js({
-      prefix: 'components/',
-      moduleName: 'foundation',
-      declareModule: false
-    }))
-    .pipe($.uglify())
-    .pipe($.concat('templates.js'))
-    //.pipe(gulp.dest('./build/assets/js'))
-    .pipe(gulp.dest('./client/assets/js/_tmp/'))
-  ;
+  // gulp.src('bower_components/foundation-apps/js/angular/components/**/*.html')
+  //   .pipe($.ngHtml2js({
+  //     prefix: 'components/',
+  //     moduleName: 'foundation',
+  //     declareModule: false
+  //   }))
+  //   .pipe($.uglify())
+  //   .pipe($.concat('templates.js'))
+  //   //.pipe(gulp.dest('./build/assets/js'))
+  //   .pipe(gulp.dest('./client/assets/js/_tmp/'))
+  // ;
 
   // Iconic SVG icons
-  gulp.src('./bower_components/foundation-apps/iconic/**/*')
-    .pipe(gulp.dest('./build/assets/img/iconic/'))
-  ;
+  // gulp.src('./bower_components/foundation-apps/iconic/**/*')
+  //   .pipe(gulp.dest('./build/assets/img/iconic/'))
+  // ;
 
   cb();
 });
@@ -140,6 +150,20 @@ gulp.task('sass', function () {
     .pipe(minifyCss)
     .pipe(gulp.dest('./build/assets/css/'))
   ;
+});
+
+gulp.task('appcache', function () {
+  var manifest = $.manifest({
+    hash: true,
+    preferOnline: true,
+    network: ['*'],
+    filename: 'panda.manifest',
+    exclude: 'panda.manifest'
+  });
+
+  return gulp.src(['build/**/*'], { base: './' })
+    .pipe(manifest)
+    .pipe(gulp.dest('build'));
 });
 
 // Minify Html
@@ -214,7 +238,7 @@ gulp.task('server', ['build'], function() {
 
 // Builds your entire app once, without starting a server
 gulp.task('build', function(cb) {
-  sequence('clean', ['copy', 'copy:foundation', 'sass', 'uglify'], 'copy:templates', 'minify:Html', cb);
+  sequence('clean', ['copy', 'copy:foundation', 'sass', 'uglify'], 'copy:templates', 'minify:Html', 'appcache', cb);
 });
 
 // Default task: builds your app, starts a server, and recompiles assets when they change

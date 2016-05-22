@@ -21,6 +21,7 @@
     "tests"
   ],
   "devDependencies": {
-    "foundation-apps": "~1.2.0"
+    "foundation-apps": "~1.2.0",
+    "angular-carousel": "^1.0.1"
   }
 }

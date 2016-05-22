@@ -14,6 +14,7 @@
       'foundation',
       'foundation.dynamicRouting',
       'foundation.dynamicRouting.animations',
+      'angular-carousel',
       '🐼.Shared',
       '🐼.Pages',
     ];

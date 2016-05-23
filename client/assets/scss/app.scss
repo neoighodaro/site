@@ -13,6 +13,14 @@
 	justify-content: center;
 }
 
+.\+center {
+	text-align: center;
+}
+
+\.faded-text {
+	color: #999;
+}
+
 .\+no-overflow {
 	overflow: hidden;
 }
@@ -62,7 +70,7 @@
 }
 
 span.footnote {
-	font-size: 12px;
+	font-size: 14px;
 	color: #666;
 }
 
@@ -71,6 +79,9 @@ span.footnote {
 	.inner-container {
 		max-width: 1200px;
 		margin: 0 auto;
+	}
+	.inner-container.smaller {
+		max-width: 900px;
 	}
 	&.\+pad-abit {
 		@include breakpoint(large) {
@@ -115,6 +126,7 @@ panda-navigation {
 	width: 100%;
 	padding: 10px 0;
 	position: fixed;
+	background-color: rgba(#fff,.3);
 	.container {
 		@include grid-block(12);
 	}
@@ -215,6 +227,74 @@ panda-navigation {
 	z-index: 99;
 	position: absolute;
 }
+
+// -----------------------
+// Work
+// -----------------------
+
+#page-container .work {
+	.showcase .item {
+		text-align: center;
+		width: 100%;
+		height: 100%;
+		max-width: 300px;
+		max-height: 300px;
+		border-bottom: 1px solid #f5f5f5;
+		padding: 0;
+		.grid-content {
+			padding: 60px 0;
+		}
+		&:last-child, &:nth-last-child(2) {
+			border-bottom: 0;
+		}
+
+		@include breakpoint(small) {
+			&:nth-child(odd) {
+				border-right: 1px solid #f5f5f5;
+			}
+		}
+
+		@include breakpoint(medium) {
+			.grid-content {
+				padding: 100px 0;
+			}
+			border-right: 1px solid #f5f5f5;
+			&:nth-child(3), &:last-child {
+				border-right: 0;
+			}
+			&:nth-last-child(3) {
+				border-bottom: 0;
+			}
+		}
+	}
+
+	panda-mini-slider, div[panda-mini-slider] {
+		ul {
+			margin: 0;
+			text-align: center;
+			width: 100%;
+			min-height: 230px;
+			@include breakpoint(medium) {
+				height: 500px;
+			}
+			img {
+				border-radius:8px;
+			}
+		}
+	}
+
+	// @include breakpoint(small) {
+	// 	.showcase .item:
+	// }
+
+	.showcase .item:nth-child(-n+2),
+	.showcase .item:nth-child(5),
+	.showcase .item:nth-child(6),
+	.showcase .item:nth-child(9) {
+	}
+
+}
+
 
 // -----------------------
 // About
@@ -323,17 +403,34 @@ panda-navigation {
 	}
 }
 
+
+// -----------------------
+// Contact
+// -----------------------
+
+#page-container .contact {
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: bottom right;
+	background-image: url(../img/bg-contact.png);
+	@include breakpoint( large ) {
+		background-size: cover;
+		background-position: center;
+	}
+}
+
 // -----------------------
 // Footer
 // -----------------------
 
 panda-footer {
 	width: 100%;
-	padding: 8px 0;
+	padding: 10px 0 5px;
 	bottom: 0;
 	width: 100%;
 	z-index: 99;
 	position: fixed;
+	background-color: rgba(#fff,.5);
 	@include breakpoint(medium) {
 		position: absolute;
 	}

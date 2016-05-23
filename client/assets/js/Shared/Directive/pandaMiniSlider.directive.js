@@ -17,7 +17,9 @@
       restrict: 'EA',
       templateUrl: '/templates/partials/pandaMiniSlider.html',
       scope: {
-        photos: '='
+        photos: '=',
+        moreLink: '@',
+        interval:'@'
       }
     };
   };

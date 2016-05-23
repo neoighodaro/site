@@ -1,1 +1,1 @@
-web: vendor/bin/heroku-php-apache2 build/
+web: node node_modules/gulp/bin/gulp build

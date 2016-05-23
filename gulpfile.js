@@ -74,6 +74,7 @@ gulp.task('clean', function(cb) {
 // Copies everything in the client folder except templates, Sass, and JS
 gulp.task('copy', function() {
   gulp.src('client/assets/js/defer.js')
+    .pipe(gulp.dest('./blog/content/themes/panda/assets/js'))
     .pipe(gulp.dest('./build/assets/js'));
 
   return gulp.src(paths.assets, {
@@ -148,7 +149,8 @@ gulp.task('sass', function () {
       browsers: ['last 2 versions', 'ie 10']
     }))
     .pipe(minifyCss)
-    .pipe(gulp.dest('./build/assets/css/'))
+    .pipe(gulp.dest('./blog/content/themes/panda/assets/css'))
+    .pipe(gulp.dest('./build/assets/css/'));
   ;
 });
 

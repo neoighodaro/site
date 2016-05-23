@@ -25,6 +25,7 @@ To install, you need to fire up your terminal and do the following:
 
 * `git clone` this repository, duh.
 * `cd` to your applications root directory.
+* Run `npm install && bower install && gulp` from the console.
 * Run the command `$ npm run start` for development builds or `$ npm run build` for production.
 * Customize to your hearts content.
 

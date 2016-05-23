@@ -118,6 +118,41 @@ panda-loading {
 }
 
 // -----------------------
+// Blog
+// -----------------------
+
+#content-wrapper {
+ 	margin-top:200px;
+	.blog {
+		max-width: 900px;
+		max-width: 0 auto;
+		article header time {
+			color: #888;
+			margin-bottom: 0;
+			font-size: 14px;
+		}
+		article header h1 {
+			font-weight: 700;
+			font-size: 40px;
+			margin-top: 0;
+		}
+		article header h1 a {
+			color: #555;
+			transition: all .4s ease;
+		}
+		article header h1 a:hover {
+			color:#333
+		}
+		article p {
+			color: #474747;
+		}
+		article {
+			margin-bottom: 100px;
+		}
+	}
+}
+
+// -----------------------
 // Navigation
 // -----------------------
 

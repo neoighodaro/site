@@ -1,3 +1,3 @@
 [submodule "blog"]
 	path = blog
-	url = git@github.com:neoighodaro/blog.git
+	url = https://8cc39fb4eb7baed75c1ac8302532dbd02937f604:x-oauth-basic@github.com/neoighodaro/blog.git

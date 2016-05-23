@@ -9,6 +9,7 @@
    */
   ContactController = function () {
     vm = this;
+    vm.available = true;
   };
 
   // Inject dependencies into the controller

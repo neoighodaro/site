@@ -376,18 +376,26 @@ panda-navigation {
 		}
 	}
 
-	// @include breakpoint(small) {
-	// 	.showcase .item:
-	// }
-
-	.showcase .item:nth-child(-n+2),
-	.showcase .item:nth-child(5),
-	.showcase .item:nth-child(6),
-	.showcase .item:nth-child(9) {
-	}
 
 }
 
+
+// -----------------------
+// Contact
+// -----------------------
+
+#page-container .contact {
+	.available {
+		color: green;
+	}
+	.unavailable {
+		color: red;
+	}
+	.work-status {
+		display: inline-block;
+		margin-top: 10px;
+	}
+}
 
 // -----------------------
 // About

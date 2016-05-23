@@ -5,7 +5,7 @@
     "start": "gulp",
     "build": "gulp build --production"
   },
-  "devDependencies": {
+  "dependencies": {
     "front-router": "^1.0.0",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.1.0",
@@ -26,7 +26,7 @@
   },
   "scripts": {
     "start": "node app",
-    "postinstall": "gulp default"
+    "postinstall": "gulp"
   },
   "private": true
 }

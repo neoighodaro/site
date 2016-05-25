@@ -29,7 +29,6 @@
   },
   "scripts": {
     "start": "node app",
-    "preinstall": "bower install && gulp build --production",
     "postinstall": "bower install && gulp build --production"
   },
   "private": true

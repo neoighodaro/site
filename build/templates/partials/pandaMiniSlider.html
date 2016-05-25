@@ -1,0 +1,10 @@
+<ul class="image" rn-carousel rn-carousel-auto-slide="{{::interval}}">
+  <li  ng-repeat="photo in photos track by $index">
+    <div class="layer">
+    	<img ng-src="{{::photo}}" alt="Neo Ighodaro" />
+    </div>
+  </li>
+</ul>
+<div class="follow-link" ng-if="moreLink">
+	<a href="{{::moreLink}}" title="See more photos" target="_blank">More Photos</a>
+</div>

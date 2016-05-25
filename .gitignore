@@ -2,6 +2,5 @@
 node_modules
 npm-debug.log
 bower_components
-build
 .sass-cache
 client/assets/js/_tmp

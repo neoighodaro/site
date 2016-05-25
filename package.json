@@ -2,7 +2,7 @@
   "name": "neoighodaro-website",
   "version": "1.0.0",
   "engines": {
-    "node": "4.1.1"
+    "node": "4.2.1"
   },
   "scripts": {
     "start": "gulp",
@@ -29,7 +29,8 @@
   },
   "scripts": {
     "start": "node app",
-    "postinstall": "gulp"
+    "preinstall": "bower install && gulp build --production",
+    "postinstall": "bower install && gulp build --production"
   },
   "private": true
 }

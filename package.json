@@ -5,8 +5,7 @@
     "node": "4.2.1"
   },
   "scripts": {
-    "start": "node app",
-    "postinstall": "bower install && gulp build --production"
+    "postinstall": "./node_modules/.bin/bower install && ./node_modules/.bin/gulp build --production"
   },
   "dependencies": {
     "bower": "^1.7.9",

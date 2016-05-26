@@ -12,7 +12,7 @@
     "scripts": {
 	    "post-install-cmd": [
 	    	"vendor/bin/node -v && vendor/bin/npm -v",
-	    	"ln -s /vendor/bin/node /usr/bin/node",
+	    	"apt-get install nodejs-legacy",
 	    	"vendor/bin/npm install bower",
 	    	"vendor/bin/npm install",
 	    	"node_modules/.bin/bower install",

@@ -1,5 +1,7 @@
 {
-	"post-install-cmd": [
-		"node -v && npm -v"
-	]
+	"scripts": {
+		"compile": [
+			"node -v && npm -v"
+		]
+	}
 }

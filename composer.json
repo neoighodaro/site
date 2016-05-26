@@ -12,10 +12,9 @@
     "scripts": {
 	    "post-install-cmd": [
 	    	"vendor/bin/node -v && vendor/bin/npm -v",
-	    	"apt-get install nodejs-legacy",
 	    	"vendor/bin/npm install bower",
 	    	"vendor/bin/npm install",
-	    	"node_modules/.bin/bower install",
+	    	"./bower install",
 	    	"node_modules/.bin/gulp production --production"
 	    ]
 	}

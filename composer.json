@@ -9,7 +9,9 @@
             }
         }
     },
-    "post-install-cmd": [
-    	"vendor/bin/node -v"
-    ]
+    "scripts": {
+	    "post-install-cmd": [
+	    	"vendor/bin/node -v"
+	    ]
+	}
 }

@@ -2,7 +2,14 @@
 	"require": {
         "mouf/nodejs-installer": "~1.0"
     },
-    "post-install-cmd": {
+    "extra": {
+        "mouf": {
+            "nodejs": {
+            	"version": "4.2.1"
+            }
+        }
+    },
+    "post-install-cmd": [
     	"vendor/bin/node -v"
-    }
+    ]
 }

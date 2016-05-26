@@ -1,7 +1,8 @@
 {
-	"scripts": {
-		"compile": [
-			"npm -v"
-		]
-	}
+	"require": {
+        "mouf/nodejs-installer": "~1.0"
+    },
+    "post-install-cmd": {
+    	"vendor/bin/node -v"
+    }
 }

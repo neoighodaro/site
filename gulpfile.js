@@ -185,7 +185,9 @@ gulp.task('minify:Html', function() {
 });
 
 // Compiles and copies the Foundation for Apps JavaScript, as well as your app's custom JS
-gulp.task('uglify', ['uglify:foundation', 'uglify:app', 'uglify:vendors'])
+gulp.task('uglify', function (cb) {
+  sequence('uglify:foundation', 'uglify:app', 'uglify:vendors', cb);
+});
 
 gulp.task('uglify:foundation', function(cb) {
   var uglify = $.if(isProduction, $.uglify()
@@ -229,7 +231,7 @@ gulp.task('uglify:app', function() {
 
 // Starts a test server, which you can view at http://localhost:8079
 gulp.task('server', ['build'], function() {
-  var webserver = $.if(!isProduction, $.webserver({
+  var webserver = $.if(isDevelopment, $.webserver({
       port: process.env.PORT || 8079,
       host: 'localhost',
       fallback: 'index.html',
@@ -251,9 +253,9 @@ gulp.task('build', function(cb) {
 gulp.task('production', ['build']);
 
 // Default task: builds your app, starts a server, and recompiles assets when they change
-gulp.task('default', ['server'], function () {
+gulp.task('default', ['build'], function () {
 
-  if ( ! isDevelopment)
+  if (isDevelopment === false)
     return;
 
   gulp.watch(['./client/assets/scss/**/*', './scss/**/*'], ['sass']);

@@ -1,7 +1,7 @@
 {
 	"scripts": {
 		"compile": [
-			"node -v && npm -v"
+			"npm -v"
 		]
 	}
 }

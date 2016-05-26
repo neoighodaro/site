@@ -1,5 +1,5 @@
 {
 	"post-install-cmd": [
 		"node -v && npm -v"
-	],
+	]
 }

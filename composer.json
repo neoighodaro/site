@@ -13,8 +13,7 @@
 	    "post-install-cmd": [
 	    	"vendor/bin/node -v && vendor/bin/npm -v",
 	    	"vendor/bin/npm install bower",
-	    	"vendor/bin/npm install",
-	    	"node_modules/.bin/gulp production --production"
+	    	"vendor/bin/npm install"
 	    ]
 	}
 }

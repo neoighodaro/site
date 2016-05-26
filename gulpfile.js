@@ -14,7 +14,8 @@ var router   = require('front-router');
 var sequence = require('run-sequence');
 
 // Check for --production flag
-var isProduction = !!(argv.production);
+var isProduction = !!(argv.production),
+    isDevelopment = !!(argv.development);
 
 // 2. FILE PATHS
 // - - - - - - - - - - - - - - -
@@ -251,15 +252,12 @@ gulp.task('production', ['build']);
 
 // Default task: builds your app, starts a server, and recompiles assets when they change
 gulp.task('default', ['server'], function () {
-  // Watch Sass
+
+  if ( ! isDevelopment)
+    return;
+
   gulp.watch(['./client/assets/scss/**/*', './scss/**/*'], ['sass']);
-
-  // Watch JavaScript
   gulp.watch(['./client/assets/js/**/*', './js/**/*'], ['uglify:app']);
-
-  // Watch static files
   gulp.watch(['./client/**/*.*', '!./client/templates/**/*.*', '!./client/assets/{scss,js}/**/*.*'], ['copy']);
-
-  // Watch app templates
   gulp.watch(['./client/templates/**/*.html'], ['copy:templates']);
 });

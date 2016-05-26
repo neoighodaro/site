@@ -228,13 +228,14 @@ gulp.task('uglify:app', function() {
 
 // Starts a test server, which you can view at http://localhost:8079
 gulp.task('server', ['build'], function() {
-  var webserver =  $.webserver({
+  var webserver = $.if(!isProduction, $.webserver({
       port: process.env.PORT || 8079,
       host: 'localhost',
       fallback: 'index.html',
       livereload: false,
       open: false
-    });
+    })
+  );
 
   gulp.src('./build')
     .pipe(webserver)
@@ -245,6 +246,8 @@ gulp.task('server', ['build'], function() {
 gulp.task('build', function(cb) {
   sequence('clean', ['copy', 'copy:foundation', 'sass', 'uglify'], 'copy:templates', 'minify:Html', 'appcache', cb);
 });
+
+gulp.task('production', ['build']);
 
 // Default task: builds your app, starts a server, and recompiles assets when they change
 gulp.task('default', ['server'], function () {

@@ -7,7 +7,7 @@
 !function(){"use strict";var a;a=function(a,t){var i;return i=function(a){a.showLogo=!0},{scope:{},link:i,restrict:"E",templateUrl:"/templates/partials/pandaNavigation.html"}},a.$inject=["$location","$stateParams"],angular.module("🐼.Shared").directive("pandaNavigation",a)}();
 !function(){"use strict";var e,c;c=function(c){return e=c.Pace,delete c.Pace,e},c.$inject=["$window"],angular.module("🐼.Shared").factory("PaceService",c)}();
 !function(){"use strict";var o,t;t=function(){o=this,o.photos=["/assets/img/neo-photo-1.png","/assets/img/neo-photo-3.png","/assets/img/neo-photo-4.png","/assets/img/neo-photo-2.png"]},t.$inject=[],angular.module("🐼.Pages").controller("AboutController",t)}();
-!function(){"use strict";var t,n;n=function(){t=this,t.available=!0},n.$inject=[],angular.module("🐼.Pages").controller("ContactController",n)}();
 !function(){"use strict";var n,o;o=function(){n=this},o.$inject=[],angular.module("🐼.Pages").controller("HomeController",o)}();
+!function(){"use strict";var t,n;n=function(){t=this,t.available=!0},n.$inject=[],angular.module("🐼.Pages").controller("ContactController",n)}();
 !function(){"use strict";var o,s;s=function(){o=this,o.photos=["/assets/img/work-1.jpg","/assets/img/work-2.jpg"]},s.$inject=[],angular.module("🐼.Pages").controller("WorkController",s)}();
 !function(){"use strict";var n,r;r=function(){n=this},r.$inject=[],angular.module("🐼.Shared").controller("PandaController",r)}();

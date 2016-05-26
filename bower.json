@@ -23,5 +23,8 @@
   "devDependencies": {
     "foundation-apps": "~1.2.0",
     "angular-carousel": "^1.0.1"
+  },
+  "resolutions": {
+    "angular": "1.5.5"
   }
 }

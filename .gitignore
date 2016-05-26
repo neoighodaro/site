@@ -5,3 +5,4 @@ bower_components
 .sass-cache
 client/assets/js/_tmp
 vendor
+build

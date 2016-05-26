@@ -5,10 +5,11 @@
     "node": "4.2.1"
   },
   "scripts": {
-    "start": "gulp",
-    "build": "gulp build --production"
+    "start": "node app",
+    "postinstall": "bower install && gulp build --production"
   },
   "dependencies": {
+    "bower": "^1.7.9",
     "front-router": "^1.0.0",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.1.0",
@@ -26,10 +27,6 @@
     "rimraf": "^2.4.1",
     "run-sequence": "^1.1.1",
     "yargs": "^3.15.0"
-  },
-  "scripts": {
-    "start": "node app",
-    "postinstall": "bower install && gulp build --production"
   },
   "private": true
 }
